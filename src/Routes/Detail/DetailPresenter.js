@@ -5,10 +5,10 @@ import Helmet from "react-helmet";
 import Loader from "Components/Loader";
 
 const Container = styled.div`
-  height: calc(100vh - 20px);
+  height: calc(100vh - 50px);
   width: 100%;
   position: relative;
-  padding: 20px;
+  padding: 50px;
 `;
 
 const Backdrop = styled.div`
@@ -38,20 +38,11 @@ const Content = styled.div`
   width: 100%;
   position: relative;
   z-index: 1;
-  height: 35%;
-`;
-
-const Description = styled.div`
-  display: flex;
-  width: 100%;
-  position: relative;
-  z-index: 1;
-  height: 35%;
-  margin-top : 30px;
+  height: 80%;
 `;
 
 const Cover = styled.div`
-  width: 100%;
+  width: 30%;
   background-image: url(${props => props.bgImage});
   background-position: center center;
   background-size: cover;
@@ -60,13 +51,12 @@ const Cover = styled.div`
 `;
 
 const Data = styled.div`
-  width: 100%;
+  width: 70%;
   margin-left: 10px;
 `;
 
 const Title = styled.h3`
   font-size: 32px;
-  margin-bottom:10px;
 `;
 
 const ItemContainer = styled.div`
@@ -83,7 +73,7 @@ const Overview = styled.p`
   font-size: 12px;
   opacity: 0.7;
   line-height: 1.5;
-  width: 100%;
+  width: 70%;
 `;
 
 const DetailPresenter = ({ result, loading, error }) =>
@@ -106,12 +96,13 @@ const DetailPresenter = ({ result, loading, error }) =>
         bgImage={`https://image.tmdb.org/t/p/original${result.backdrop_path}`}
       />
       <Summary>
+        <Data>
+          <Title>
+            {result.original_title
+              ? result.original_title
+              : result.original_name}
+          </Title>
           <ItemContainer>
-            <Title>
-              {result.original_title
-                ? result.original_title
-                : result.original_name}
-            </Title>
             <Item>
               Release
               <Divider>:</Divider>
@@ -135,6 +126,7 @@ const DetailPresenter = ({ result, loading, error }) =>
                 )}
             </Item>
           </ItemContainer>
+        </Data>
       </Summary>
       <Content>
         <Cover
@@ -144,12 +136,10 @@ const DetailPresenter = ({ result, loading, error }) =>
               : require("../../assets/noPosterSmall.png")
           }
         />
-      </Content>
-      <Description>
         <Data>
           <Overview>{result.overview}</Overview>
         </Data>
-      </Description>
+      </Content>
     </Container>
   );
 
