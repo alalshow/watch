@@ -1,8 +1,8 @@
-import React from "react";
-import PropTypes from "prop-types";
-import styled from "styled-components";
-import Helmet from "react-helmet";
-import Loader from "Components/Loader";
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import Helmet from 'react-helmet';
+import Loader from 'Components/Loader';
 
 const Container = styled.div`
   height: calc(100vh - 50px);
@@ -72,7 +72,7 @@ const DetailPresenter = ({ result, loading, error }) =>
   loading ? (
     <>
       <Helmet>
-        <title>Loading | Nomflix</title>
+        <title>Loading | Watch</title>
       </Helmet>
       <Loader />
     </>
@@ -80,8 +80,8 @@ const DetailPresenter = ({ result, loading, error }) =>
     <Container>
       <Helmet>
         <title>
-          {result.original_title ? result.original_title : result.original_name}{" "}
-          | Nomflix
+          {result.original_title ? result.original_title : result.original_name}{' '}
+          | Watch
         </title>
       </Helmet>
       <Backdrop
@@ -92,7 +92,7 @@ const DetailPresenter = ({ result, loading, error }) =>
           bgImage={
             result.poster_path
               ? `https://image.tmdb.org/t/p/original${result.poster_path}`
-              : require("../../assets/noPosterSmall.png")
+              : require('../../assets/noPosterSmall.png')
           }
         />
         <Data>
@@ -117,7 +117,7 @@ const DetailPresenter = ({ result, loading, error }) =>
                 result.genres.map((genre, index) =>
                   index === result.genres.length - 1
                     ? genre.name
-                    : `${genre.name} / `
+                    : `${genre.name} / `,
                 )}
             </Item>
           </ItemContainer>
@@ -130,7 +130,7 @@ const DetailPresenter = ({ result, loading, error }) =>
 DetailPresenter.propTypes = {
   result: PropTypes.object,
   loading: PropTypes.bool.isRequired,
-  error: PropTypes.string
+  error: PropTypes.string,
 };
 
 export default DetailPresenter;

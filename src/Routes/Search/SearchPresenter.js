@@ -1,11 +1,11 @@
-import React from "react";
-import PropTypes from "prop-types";
-import styled from "styled-components";
-import Helmet from "react-helmet";
-import Loader from "Components/Loader";
-import Section from "Components/Section";
-import Message from "../../Components/Message";
-import Poster from "../../Components/Poster";
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import Helmet from 'react-helmet';
+import Loader from 'Components/Loader';
+import Section from 'Components/Section';
+import Message from '../../Components/Message';
+import Poster from '../../Components/Poster';
 
 const Container = styled.div`
   padding: 20px;
@@ -29,11 +29,11 @@ const SearchPresenter = ({
   searchTerm,
   handleSubmit,
   error,
-  updateTerm
+  updateTerm,
 }) => (
   <Container>
     <Helmet>
-      <title>Search | Nomflix</title>
+      <title>Search | Watch</title>
     </Helmet>
     <Form onSubmit={handleSubmit}>
       <Input
@@ -94,7 +94,7 @@ SearchPresenter.propTypes = {
   searchTerm: PropTypes.string,
   loading: PropTypes.bool.isRequired,
   handleSubmit: PropTypes.func.isRequired,
-  updateTerm: PropTypes.func.isRequired
+  updateTerm: PropTypes.func.isRequired,
 };
 
 export default SearchPresenter;
